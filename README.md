@@ -1,4 +1,4 @@
-# happyfff
+# bookstore-demo
 
 > A Vue.js project
 
