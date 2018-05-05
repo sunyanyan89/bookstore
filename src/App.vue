@@ -6,15 +6,11 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Tab from '@/base/Tab.vue'
 export default {
   name: 'App',
   components: {Tab},
   created () {
-    axios.get('/static/books.json').then(res=>{
-      console.log(res.data)
-    })
   }
 }
 </script>

@@ -9,9 +9,6 @@ import 'iview/dist/styles/iview.css'
 Vue.use(iview)
 Vue.config.productionTip = false
 
-// Vue.prototype.axios = axios;
-
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
