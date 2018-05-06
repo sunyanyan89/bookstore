@@ -1,7 +1,8 @@
 <template>
   <div class="header">
-    <Icon type="arrow-return-left" v-if="isBack" @click.native="goBack"></Icon>
+    <Icon :type="iconType" v-if="isBack" @click.native="goBack"></Icon>
     <slot></slot>
+    <div class="push-right"><slot name="right"></slot></div>
   </div>
 </template>
 <script>
@@ -15,10 +16,19 @@ export default {
             type: Boolean,
             default: true
         },
+        type: {
+            type: String,
+            default: 'arrow'
+        }
     },
     data () {
         return {
             
+        }
+    },
+    computed: {
+        iconType () {
+            return this.type === 'arrow' ? 'arrow-left-c' : 'navicon-round'
         }
     },
     methods: {
@@ -37,11 +47,16 @@ export default {
     width: 100%;
     height: 40px;
     background-color: #defedd;
-    i {
+    &>i {
         position: absolute;
-        font-size: 25px;
+        font-size: 30px;
         left: 20px;
         top: 5px;
+    }
+    .push-right {
+        font-size: 25px;
+        float: right;
+        padding-right: 1rem;
     }
 }
 </style>

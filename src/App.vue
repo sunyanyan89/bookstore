@@ -7,9 +7,10 @@
 
 <script>
 import Tab from '@/base/Tab.vue'
+
 export default {
   name: 'App',
-  components: {Tab},
+  components: { Tab },
   created () {
   }
 }
@@ -17,6 +18,7 @@ export default {
 
 <style lang="less">
 #app {
+  color: #000;
   font-size: 16px;
   width: 100vw;
   height: 100vh;

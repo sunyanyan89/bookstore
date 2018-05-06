@@ -1,5 +1,6 @@
 <template>
   <div>
+      <MyHead>消息</MyHead>
       {{title}}
   </div>
 </template>

@@ -1,5 +1,6 @@
 <template>
   <div>
+      <MyHead>个人中心</MyHead>
       {{title}}
   </div>
 </template>

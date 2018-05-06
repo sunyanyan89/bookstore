@@ -1,4 +1,4 @@
-module.exports = [
+[
     {
         "bookName": "半小时漫画世界史",
         "bookImg": "/static/imgs/books/000000_cover.jpg",

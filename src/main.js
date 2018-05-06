@@ -9,6 +9,9 @@ import 'iview/dist/styles/iview.css'
 Vue.use(iview)
 Vue.config.productionTip = false
 
+import MyHead from '@/base/MyHead'
+Vue.component('MyHead', MyHead) // 全局组件 每个页面都有 但是接收的参数不同
+
 new Vue({
   el: '#app',
   router,

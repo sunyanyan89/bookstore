@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <router-link to="/"><Icon type="ios-home-outline"></Icon>首页</router-link>
-    <router-link to="/favor"><Icon type="ios-list-outline"></Icon>分类</router-link>
-    <router-link to="/favor"><Icon type="ios-chatbubble-outline"></Icon>消息</router-link>
+    <router-link to="/list"><Icon type="ios-list-outline"></Icon>列表</router-link>
+    <router-link to="/mes"><Icon type="ios-chatbubble-outline"></Icon>消息</router-link>
     <router-link to="/cart"><Icon type="ios-cart-outline"></Icon>购物车</router-link>
     <router-link to="/user"><Icon type="ios-person-outline"></Icon>我的</router-link>  
   </div>
@@ -12,6 +12,7 @@ export default {
   data () {
       return {
           menus: [
+            {path: '/', name: ''},
             {path: '/', name: ''},
             {path: '/cart', name: '购物车'},
             {path: '/favor', name: '收藏'},
