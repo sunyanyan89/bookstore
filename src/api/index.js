@@ -49,3 +49,8 @@ export let addBook = (data) => {
 export let getAll = () => {
     return axios.all([getSliders(), getHotBooks()])
 }
+
+// 分页取数据
+export let getPage = (offset=0,pageSize=5) => {
+    return axios.get('/page?offset='+offset+'&pageSize='+pageSize)
+}

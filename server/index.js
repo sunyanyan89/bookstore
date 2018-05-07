@@ -63,6 +63,15 @@ http.createServer((req, res) => {
         })
         return
     }
+    if(pathname === '/page') {
+        let offset = parseInt(query.offset)
+        let pageSize = parseInt(query.pageSize)
+        read(books => {
+            let result = books.reverse().slice(offset,offset+pageSize)
+            let hasMore = books.length > (offset + pageSize)
+            res.end(JSON.stringify({hasMore, books: result}))
+        })
+    }
     if(pathname === '/book') {
         // let id = parseInt(query.id)
         let id = query.id
