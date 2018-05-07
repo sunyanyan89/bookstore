@@ -57,7 +57,9 @@ http.createServer((req, res) => {
     if(pathname === '/hotBooks') {
         read(books => {
             books = books.filter(book => book.isHot === "1")
-            res.end(JSON.stringify(books)) // 此时读出来的就是json数据
+            setTimeout(()=>{
+                res.end(JSON.stringify(books)) // 此时读出来的就是json数据
+            },300)
         })
         return
     }

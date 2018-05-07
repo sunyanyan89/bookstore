@@ -1,7 +1,7 @@
 # bookstore-demo
 
-> A Vue.js project
-
+> A Vue.js demo for managing books.
+> The project uses vue-router, axios and iview.
 ## Build Setup
 
 ``` bash

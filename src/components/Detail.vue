@@ -7,7 +7,7 @@
         isBack ='true'   组件收到的isBack是 String
        -->
       <MyHead :isBack='true' type='list'>{{book.bookName}}</MyHead>      
-      <div class="content">
+      <div class="content detail">
         <img :src="book.bookImg">
         <div class="info" v-if="isEdit">
             <Row>
@@ -80,31 +80,5 @@ export default {
 }
 </script> 
 <style lang="less" scoped>
-.content {
-    padding-top: 2rem;
-    text-align: center;
-    img {
-        width: 50%;
-        margin-bottom: 1rem;
-    }
-    .ivu-row {
-        margin-bottom: 1rem;
-    }
-    .static {
-        padding: 15px 25px;
-        p {
-            display: flex;
-            flex-direction: row;
-            line-height: 2rem;
-            span:first-child {
-                width: 30%;
-                font-weight: bold;
-            }
-            span:last-child {
-                width: 70%;
-                text-align: left
-            }
-        }
-    }
-}
+
 </style>

@@ -4,7 +4,7 @@
           列表
           <router-link :to="{path: '/list/add'}" slot="right"><Icon type="plus-round"></Icon></router-link>
       </MyHead>      
-      <div class="content">
+      <div class="content list">
           <ul>
               <li v-for="book in books" :key="book.bookId">
                   <img :src="book.bookImg">
@@ -58,47 +58,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@tipColor : #bbb;
-ul {
-    padding: 1rem;
-    li {
-        display: flex;
-        border-bottom: 1px solid #ccc;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        img {
-            width: 30%;
-            height: 5%;
-        }
-        .info {
-            padding-left: 0.8rem;
-            p {
-                padding-bottom: 5px;
-            }
-            .bookdesc {
-                color: #baa;
-                font-size: 0.9rem;
-            }
-            .bookauthor {
-                font-size: 0.8rem;
-                color: @tipColor;
-            }
-            .bookprice {
-                color: #dd3333;
-            }
-            button {
-                margin-right: 0.5rem;
-            }
-        }
-        &:first-child {
-            padding-top: 0;
-        }
-        &:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-    }
-}
+
 </style>
 
 

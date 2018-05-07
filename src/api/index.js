@@ -31,8 +31,8 @@ export let getOneBook = id => {
 
 // 删除某一本图书
 export let deleteBook = id => {
-    return axios.delete(`/book?id=${id}`)
-    // return axios.delete('/book?id=' + id)
+    // return axios.delete(`/book?id=${id}`)
+    return axios.delete('/book?id=' + id)
 }
 
 // 修改某一本图书
@@ -44,4 +44,8 @@ export let updateBook = (id, data) => {
 export let addBook = (data) => {
     console.log(data)
     return axios.post('/book', JSON.stringify(data))
+}
+
+export let getAll = () => {
+    return axios.all([getSliders(), getHotBooks()])
 }
