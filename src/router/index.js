@@ -10,7 +10,7 @@ import User from '@/components/User.vue'
 
 Vue.use(VueRouter)
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Home, meta:{keepAlive: true} },
   { path: '/list', name: 'list', component: List },
   { path: '/list/add', component: ListAdd },
   { path: '/detail/:id', name: 'detail', component: Detail },
