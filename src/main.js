@@ -5,13 +5,14 @@ import App from './App'
 import router from './router'
 import iview from 'iview'
 import 'iview/dist/styles/iview.css'
+import './style/style.less'
 
 Vue.use(iview)
 Vue.config.productionTip = false
 
-// Vue.prototype.axios = axios;
+import MyHead from '@/base/MyHead'
+Vue.component('MyHead', MyHead) // 全局组件 每个页面都有 但是接收的参数不同
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

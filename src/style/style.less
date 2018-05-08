@@ -1,0 +1,124 @@
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+    transition: all .5s linear;
+}
+.fade-leave-active {
+    transition: all .5s linear;
+    opacity: 0;
+}
+.home {
+    .load {
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        .demo-spin-icon-load{
+            animation: ani-demo-spin 1s linear infinite;
+        }
+    }
+    .mm {
+        height: 12rem;
+        img {
+            width: 100%;
+            height:100%;
+        }
+    }
+    .hot {
+        text-align: center;
+        h3 {
+            padding: 1rem;
+        }
+        width: 95%;
+        margin: 0 auto;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                width: 50%;
+                padding-bottom: 1rem;
+                img {
+                    width: 90%;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+.list {
+    @tipColor : #bbb;
+    ul {
+        padding: 1rem;
+        li {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            padding: 1rem 0;
+            img {
+                width: 30%;
+                height: 5%;
+            }
+            .info {
+                padding-left: 0.8rem;
+                p {
+                    padding-bottom: 5px;
+                }
+                .bookdesc {
+                    color: #baa;
+                    font-size: 0.9rem;
+                }
+                .bookauthor {
+                    font-size: 0.8rem;
+                    color: @tipColor;
+                }
+                .bookprice {
+                    color: #dd3333;
+                }
+                button {
+                    margin-right: 0.5rem;
+                }
+            }
+            &:first-child {
+                padding-top: 0;
+            }
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+    }
+    .more {
+        text-align: center;
+        margin-bottom: 1rem;
+        button {
+            width: 50%;
+        }
+    }
+}
+.detail {
+    padding-top: 2rem;
+    text-align: center;
+    img {
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+    .ivu-row {
+        margin-bottom: 1rem;
+    }
+    .static {
+        padding: 15px 25px;
+        p {
+            display: flex;
+            flex-direction: row;
+            line-height: 2rem;
+            span:first-child {
+                width: 30%;
+                font-weight: bold;
+            }
+            span:last-child {
+                width: 70%;
+                text-align: left
+            }
+        }
+    }
+}

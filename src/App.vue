@@ -1,26 +1,31 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="fade">
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+    </transition>
+    <transition name="fade">
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </transition>
     <Tab/>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import Tab from '@/base/Tab.vue'
+
 export default {
   name: 'App',
-  components: {Tab},
+  components: { Tab },
   created () {
-    axios.get('/static/books.json').then(res=>{
-      console.log(res.data)
-    })
   }
 }
 </script>
 
 <style lang="less">
 #app {
+  color: #000;
   font-size: 16px;
   width: 100vw;
   height: 100vh;
