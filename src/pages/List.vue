@@ -32,6 +32,58 @@
 <script>
 import {getPage, deleteBook} from '@/api'
 export default {
+    mounted () {
+        let scroll = this.$refs.scroll
+        let top = scroll.offsetTop // 40
+        let distance = 0
+        scroll.addEventListener('touchstart', (e) => {
+            // 滚动条在最顶端时 并且当前盒子在顶端时 才继续走
+            if(scroll.scrollTop != 0 || scroll.offsetTop != top) return
+            let start = e.touches[0].pageY
+            let move = (e) => {
+                let curr = e.touches[0].pageY
+                let distance = curr - start
+                if(distance > 0) {
+                    distance = distance > 50 ? 50 : distance
+                    scroll.style.top = distance + top + 'px' 
+                }else {
+                    // 如果是向上滑 不考虑下拉刷新事件
+                    scroll.removeEventListener('touchmove', move)
+                    scroll.removeEventListener('touchend', end)
+                }
+
+            }
+            let end = (e) => {
+            //     clearInterval(this.interval)                
+            //     // 结束时 让scroll 缓慢从distance+40减至40
+            //     this.interval = setInterval(() => {
+            //         if(distance <= 0) {
+            //             clearInterval(this.interval)
+            //             distance = 0
+            //             console.log('tth')
+            //             scroll.removeEventListener('touchmove', move)
+            //             scroll.removeEventListener('touchend', end)
+            //             this.books = []
+            //             this.offset = 0
+            //             this.hasMore = true
+            //             this.getList()
+            //         }
+            //         scroll.style.top = distance + top + 'px'
+            //         console.log(distance)
+            //         distance -= 1
+            //    }, 1)
+                scroll.style.top = top + 'px'
+                scroll.removeEventListener('touchmove', move)
+                scroll.removeEventListener('touchend', end)
+                this.books = []
+                this.offset = 0
+                this.hasMore = true
+                this.getList()
+            }
+            scroll.addEventListener('touchmove', move)
+            scroll.addEventListener('touchend', end)
+        }, false)
+    },
     created () {
         this.getList()
     },
@@ -69,11 +121,10 @@ export default {
             this.timer = setTimeout(() => {
                 //   卷起的高度  当前可见区域高度   总高
                 let {scrollTop, clientHeight, scrollHeight} = this.$refs.scroll
-                if(scrollTop+clientHeight+40 > scrollHeight) {
+                if(scrollTop+clientHeight+10 > scrollHeight) {
                     this.getList()
                 }
-                console.log(1000)
-            },60)
+            },20)
         }
 
     },
