@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/components/Home.vue'
-import List from '@/components/List.vue'
-import ListAdd from '@/components/ListAdd.vue'
-import Detail from '@/components/Detail.vue'
-import Mes from '@/components/Mes.vue'
-import Cart from '@/components/Cart.vue'
-import User from '@/components/User.vue'
+import Home from '@/pages/Home.vue'
+import List from '@/pages/List.vue'
+import ListAdd from '@/pages/ListAdd.vue'
+import Detail from '@/pages/Detail.vue'
+import Mes from '@/pages/Mes.vue'
+import Cart from '@/pages/Cart.vue'
+import User from '@/pages/User.vue'
 
 Vue.use(VueRouter)
 const routes = [

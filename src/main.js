@@ -6,7 +6,9 @@ import router from './router'
 import iview from 'iview'
 import 'iview/dist/styles/iview.css'
 import './style/style.less'
+import Highcharts from 'highcharts/highstock'
 
+Vue.use(Highcharts)
 Vue.use(iview)
 Vue.config.productionTip = false
 
