@@ -10,14 +10,31 @@ import User from '@/pages/User.vue'
 
 Vue.use(VueRouter)
 const routes = [
-  { path: '/', component: Home, meta:{keepAlive: true} },
-  { path: '/list', name: 'list', component: List },
-  { path: '/list/add', component: ListAdd },
-  { path: '/detail/:id', name: 'detail', component: Detail },
-  { path: '/detailEdit/:id', name: 'detailEdit', component: Detail },
-  { path: '/mes', component: Mes },
-  { path: '/cart', component: Cart },
-  { path: '/user', component: User },
+  { path: '/', component: Home, 
+    meta: { keepAlive: true,
+    title: '首页'
+  }},
+  { path: '/list', name: 'list', component: List,
+    meta: { title: '图书列表' }
+  },
+  { path: '/list/add', component: ListAdd, 
+    meta: { title: '添加图书' }
+  },
+  { path: '/detail/:id', name: 'detail', component: Detail, 
+    meta: { title: '图书详情' }
+  },
+  { path: '/detailEdit/:id', name: 'detailEdit', component: Detail, 
+    meta: { title: '编辑图书' }
+  },
+  { path: '/mes', component: Mes, 
+    meta: { title: '我的消息' }
+  },
+  { path: '/cart', component: Cart, 
+    meta: { title: '我的购物车' }
+  },
+  { path: '/user', component: User, 
+    meta: { title: '个人中心' }
+  },
   { path: '*', redirect: '/'},
 ]
 export default new VueRouter({

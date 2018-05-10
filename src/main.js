@@ -22,6 +22,12 @@ Vue.config.productionTip = false
 import MyHead from '@/base/MyHead'
 Vue.component('MyHead', MyHead) // 全局组件 每个页面都有 但是接收的参数不同
 
+// 全局钩子 每次进入路由前都会执行此方法 可以进行拦截
+router.beforeEach(function(to, from, next) {
+  document.title = to.meta.title
+  next()
+})
+
 new Vue({
   el: '#app',
   router,
