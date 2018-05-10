@@ -4,10 +4,19 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import iview from 'iview'
+// iview UI组件库
 import 'iview/dist/styles/iview.css'
-import './style/style.less'
-
 Vue.use(iview)
+import './style/style.less'
+// 图片懒加载
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad, {
+  preLoad: 1.3,
+  error: '/static/default.gif',
+  loading: '/static/loading.gif',
+  attempt: 1
+})
+
 Vue.config.productionTip = false
 
 import MyHead from '@/base/MyHead'

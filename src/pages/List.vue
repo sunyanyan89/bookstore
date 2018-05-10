@@ -7,7 +7,7 @@
       <div class="content list" ref="scroll" @scroll="loadMore">
           <ul>
               <li v-for="book in books" :key="book.bookId">
-                  <img :src="book.bookImg">
+                  <img v-lazy="book.bookImg">
                   <div class="info">
                       <h3 class="bookname">{{book.bookName}}</h3>
                       <p class="bookdesc">{{book.bookDesc | descLength}}</p>
