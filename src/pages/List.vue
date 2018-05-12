@@ -14,12 +14,15 @@
                       <p class="bookauthor">{{book.bookAuthor}}</p>
                       <p class="bookprice">￥{{book.bookPrice}}</p>
                       <router-link :to="{name: 'detail', params: { id: book.bookId }}">
-                          <Button type="info">详情</Button>
+                          <Button type="info" size="small" @click.stop>详情</Button>
                       </router-link>
                       <router-link :to="{name: 'detailEdit', params: { id: book.bookId }}">
-                          <Button type="warning">编辑</Button>
+                          <Button type="warning" size="small">编辑</Button>
                       </router-link>
-                      <Button type="error" @click="remove(book.bookId)">删除</Button>
+                      <router-link to="/cart">
+                          <Button type="error" size="small">加入购物车</Button>
+                      </router-link>
+                      <Button type="error" @click="remove(book.bookId)" size="small">删除</Button>
                   </div>
               </li>
           </ul>
@@ -32,15 +35,23 @@
 <script>
 import {getPage, deleteBook} from '@/api'
 export default {
+    watch: {
+        'router': (to ,from) => {
+            console.log(to)
+        }
+    },
     mounted () {
         let scroll = this.$refs.scroll
         let top = scroll.offsetTop // 40
         let distance = 0
+        let isMove = false
         scroll.addEventListener('touchstart', (e) => {
+            
             // 滚动条在最顶端时 并且当前盒子在顶端时 才继续走
             if(scroll.scrollTop != 0 || scroll.offsetTop != top) return
             let start = e.touches[0].pageY
             let move = (e) => {
+                isMove = true
                 let curr = e.touches[0].pageY
                 let distance = curr - start
                 if(distance > 0) {
@@ -54,6 +65,9 @@ export default {
 
             }
             let end = (e) => {
+                if(!isMove) return;
+                isMove = false
+                console.log('endddd')
             //     clearInterval(this.interval)                
             //     // 结束时 让scroll 缓慢从distance+40减至40
             //     this.interval = setInterval(() => {

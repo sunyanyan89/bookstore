@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import iview from 'iview'
 // iview UI组件库
 import 'iview/dist/styles/iview.css'
@@ -31,6 +32,7 @@ router.beforeEach(function(to, from, next) {
 new Vue({
   el: '#app',
   router,
+  store, // 注册store到实例上，这样所有组件都可以访问this.$store
   components: { App },
   template: '<App/>',
 })
