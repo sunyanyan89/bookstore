@@ -4,6 +4,7 @@ node.js模拟后端返回接口
 let http = require('http')
 let fs = require('fs')
 let url = require('url')
+let path = require('path')
 
 // 获取轮播图接口 /sliders
 // 服务端用nodejs 只能用commonJS语法
@@ -11,7 +12,8 @@ let url = require('url')
 let sliders = require('./sliders')
 
 function read(callback) {
-    fs.readFile('./books.json', 'utf8', function(err, data) {
+    // 把books.json变成绝对路径
+    fs.readFile(path.resolve('server/books.json'), 'utf8', function(err, data) {
         if(err || data.length === 0) {
             callback([]) // 如果有错误或者数据为空
         }else {
@@ -24,7 +26,7 @@ function read(callback) {
 // read(function(data) {})
 
 function write(data, callback) {
-    fs.writeFile('./books.json', JSON.stringify(data), (err, data) => {
+    fs.writeFile(path.resolve('server/books.json'), JSON.stringify(data), (err, data) => {
         callback(data)
     })
 }

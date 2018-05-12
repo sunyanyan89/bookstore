@@ -8,8 +8,13 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# server at loaclhost:3000
+npm run server
+visit http://localhost:3000/book in browser
+
+# client with hot reload at localhost:8080
 npm run dev
+visit http://localhost:8080 in browser
 
 # build for production with minification
 npm run build
