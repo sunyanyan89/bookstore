@@ -13,7 +13,7 @@ npm run server
 visit http://localhost:3000/book in browser
 
 # client with hot reload at localhost:8080
-npm run dev
+npm run client
 visit http://localhost:8080 in browser
 
 # build for production with minification

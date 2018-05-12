@@ -5,7 +5,7 @@
   "author": "yanyan <546208361@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "client": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "server": "node server/index.js",
     "build": "node build/build.js"
