@@ -1,0 +1,73 @@
+{% extends './layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block subTitle %}
+<h2>添加图书</h2>
+{% endblock %}
+
+{% block content %}
+<div class="btnAdd">
+    <a href="/list" class="btn btn-info">返回列表</a>
+</div>
+
+<form action="/add" class="form-horizontal addForm" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name" class="col-md-4 control-label">名称</label>
+        <div class="col-md-5">
+            <input type="text" required name="name" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="artist" class="col-md-4 control-label">price</label>
+        <div class="col-md-5">
+            <input type="text" name="price" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="artist" class="col-md-4 control-label">作者</label>
+        <div class="col-md-5">
+            <input type="text" name="author" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="artist" class="col-md-4 control-label">描述</label>
+        <div class="col-md-5">
+            <textarea name="desc" id="" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="poster" class="col-md-4 control-label">封面</label>
+        <div class="col-md-5">
+            <input type="file" required name="image" class="form-control" accept="image/*">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="poster" class="col-md-4 control-label">是否热门</label>
+        <div class="col-md-5">
+            <label class="radio-inline">
+                <input type="radio" name="isHot" value="1">是
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="isHot" value="0">否
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="text-center">
+            <button class="btn btn-info btn-lg btnSubmit">确认添加</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block css %}
+<style>
+.addForm {
+    padding: 30px;
+}
+.btnSubmit {
+    width: 100px;
+}
+</style>
+{% endblock %}

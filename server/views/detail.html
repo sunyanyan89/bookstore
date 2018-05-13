@@ -1,0 +1,52 @@
+{% extends './layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block subTitle %}
+<h2>图书详情</h2>
+{% endblock %}
+
+{% block content %}
+<div class="btnAdd">
+    <a href="/list" class="btn btn-info">返回列表</a>
+</div>
+
+<form action="/add" class="form-horizontal addForm" method="post" enctype="multipart/form-data">
+    <div class="editId hidden">{{book.id}}</div>
+    <div class="form-group">
+        <label for="name" class="col-md-4 control-label">名称</label>
+        <div class="col-md-5">
+            <p class="form-control-static">{{book.bookName}}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="artist" class="col-md-4 control-label">价格</label>
+        <div class="col-md-5">
+            <p class="form-control-static">{{book.bookPrice}}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="artist" class="col-md-4 control-label">作者</label>
+        <div class="col-md-5">
+            <p class="form-control-static">{{book.bookAuthor}}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="artist" class="col-md-4 control-label">描述</label>
+        <div class="col-md-5">
+            <p class="form-control-static">{{book.bookDesc}}</p>
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block css %}
+<style>
+.addForm {
+    padding: 30px;
+}
+.btnSubmit {
+    width: 100px;
+}
+</style>
+{% endblock %}

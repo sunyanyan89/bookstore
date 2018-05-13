@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/Home.vue'
 import List from '@/pages/List.vue'
-import ListAdd from '@/pages/ListAdd.vue'
 import Detail from '@/pages/Detail.vue'
 import Mes from '@/pages/Mes.vue'
 import Cart from '@/pages/Cart.vue'
@@ -17,9 +16,9 @@ const routes = [
   { path: '/list', name: 'list', component: List,
     meta: { title: '图书列表' }
   },
-  { path: '/list/add', component: ListAdd, 
-    meta: { title: '添加图书' }
-  },
+  // { path: '/list/add', component: ListAdd, 
+  //   meta: { title: '添加图书' }
+  // },
   { path: '/detail/:id', name: 'detail', component: Detail, 
     meta: { title: '图书详情' }
   },

@@ -35,7 +35,6 @@
                     </RadioGroup>
                 </Col>
             </Row>
-            <Row><Col span='24'><Button type="info" @click="submit">提交</Button></Col></Row>
         </div>
         <div class="info static" v-else>
             <p><span>标题：</span><span>{{book.bookName}}</span></p>
@@ -47,7 +46,7 @@
   </div>
 </template>
 <script>
-import {getOneBook, updateBook} from '@/api'
+import {getOneBook} from '@/api'
 export default {
     created () {
         this.getCurrBook()
@@ -62,10 +61,6 @@ export default {
             this.book = await getOneBook(this.$route.params.id)
             if(!this.book) this.$router.push('/list')
         },
-        async submit () {
-            await updateBook(this.book.bookId, this.book)
-            this.$router.push('/list') // 修改完跳转回列表页
-        }
     },
     computed: {
         isEdit () {

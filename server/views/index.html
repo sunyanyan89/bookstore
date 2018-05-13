@@ -1,0 +1,63 @@
+{% extends './layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block subTitle %} 
+<h2>图书列表</h2>
+{% endblock %}
+
+{% block content %}
+<div class="btnAdd">
+    <a href="/hot" class="btn btn-info">热门图书</a>
+    <a href="/add" class="btn btn-success">添加图书</a>
+</div>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>#</th>
+            <th>书名</th>
+            <th>价格</th>
+            <th>作者</th>
+            <th>描述</th>
+            <th>封面</th>
+            <th>是否热门</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+            {% for key,val in books %}
+                <tr>
+                    <td>{{val.id}}</td>
+                    <td>{{val.bookName}}</td>
+                    <td>{{val.bookPrice}}</td>
+                    <td>{{val.bookAuthor}}</td>
+                    <td>{{val.bookDesc}}</td>
+                    <td>{{val.bookImg}}</td>
+                    <td>
+                        {% if val.isHot %}是{% else %}否{% endif %}</td>
+                    <td>
+                        <div>
+                            <a class="btn btn-info" href='/detail/{{val.id}}'>详情</a>
+                            <a class="btn btn-warning btnEdit" href='/edit/{{val.id}}'>编辑</a>
+                            <a class="btn btn-danger btnDel" href="/delete/{{val.id}}">删除</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block css %}
+<style>
+.btnAdd {
+    margin-bottom: 20px;
+}
+td {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 150px;
+}
+</style>
+{% endblock %}
