@@ -8,9 +8,9 @@
 # install dependencies
 npm install
 
-# server at loaclhost:3000
+# server at loaclhost:8181
 npm run server
-visit http://localhost:3000/book in browser
+visit http://localhost:8181/book in browser
 
 # client with hot reload at localhost:8080
 npm run client
