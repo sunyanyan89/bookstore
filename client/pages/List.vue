@@ -2,7 +2,6 @@
   <div>
       <MyHead :isBack='false'>
           列表
-          <router-link :to="{path: '/list/add'}" slot="right"><Icon type="plus-round"></Icon></router-link>
       </MyHead>      
       <div class="content list" ref="scroll" @scroll="loadMore">
           <ul>
@@ -10,19 +9,15 @@
                   <img v-lazy="book.bookImg">
                   <div class="info">
                       <h3 class="bookname">{{book.bookName}}</h3>
-                      <p class="bookdesc">{{book.bookDesc | descLength}}</p>
+                      <p class="bookdesc">{{book.bookDesc}}</p>
                       <p class="bookauthor">{{book.bookAuthor}}</p>
                       <p class="bookprice">￥{{book.bookPrice}}</p>
-                      <router-link :to="{name: 'detail', params: { id: book.bookId }}">
+                      <router-link :to="{name: 'detail', params: { id: book.id }}">
                           <Button type="info" size="small" @click.stop>详情</Button>
-                      </router-link>
-                      <router-link :to="{name: 'detailEdit', params: { id: book.bookId }}">
-                          <Button type="warning" size="small">编辑</Button>
                       </router-link>
                       <router-link to="/cart">
                           <Button type="error" size="small">加入购物车</Button>
                       </router-link>
-                      <Button type="error" @click="remove(book.bookId)" size="small">删除</Button>
                   </div>
               </li>
           </ul>
@@ -33,7 +28,7 @@
   </div>
 </template>
 <script>
-import {getPage, deleteBook} from '@/api'
+import {getPage} from '@/api'
 export default {
     watch: {
         'router': (to ,from) => {
@@ -67,25 +62,6 @@ export default {
             let end = (e) => {
                 if(!isMove) return;
                 isMove = false
-                console.log('endddd')
-            //     clearInterval(this.interval)                
-            //     // 结束时 让scroll 缓慢从distance+40减至40
-            //     this.interval = setInterval(() => {
-            //         if(distance <= 0) {
-            //             clearInterval(this.interval)
-            //             distance = 0
-            //             console.log('tth')
-            //             scroll.removeEventListener('touchmove', move)
-            //             scroll.removeEventListener('touchend', end)
-            //             this.books = []
-            //             this.offset = 0
-            //             this.hasMore = true
-            //             this.getList()
-            //         }
-            //         scroll.style.top = distance + top + 'px'
-            //         console.log(distance)
-            //         distance -= 1
-            //    }, 1)
                 scroll.style.top = top + 'px'
                 scroll.removeEventListener('touchmove', move)
                 scroll.removeEventListener('touchend', end)
@@ -121,12 +97,6 @@ export default {
                 this.offset = this.books.length
             }
         },
-        async remove (id) {
-            await deleteBook(id)
-            // 同时删除前台数据
-            // this.getList() // 这样会多一次请求
-            this.books = this.books.filter(book => book.bookId !== id)
-        },
         getMore () {
             this.getList()
         },
@@ -151,7 +121,13 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-
+.bookdesc {
+    width: 16rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-top: 0.5rem;
+}
 </style>
 
 

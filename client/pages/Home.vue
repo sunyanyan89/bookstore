@@ -23,7 +23,7 @@
             <div class="hot">
                 <h3>热门图书</h3>
                 <ul>
-                    <router-link v-for="(book, index) in books" :to="{ name: 'detail', params: {id: book.bookId}}" :key="index" tag="li">
+                    <router-link v-for="(book, index) in books" :to="{ name: 'detail', params: {id: book.id}}" :key="index" tag="li">
                         <img v-lazy='book.bookImg'>
                         <p>{{book.bookName}}</p>  
                     </router-link>
